@@ -1,0 +1,30 @@
+<div class="main">
+  <h2>登録済みルーム一覧</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>料金</th>
+        <th>作成日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rooms.each do |room| %>
+        <tr>
+          <% if room.img_name? %>
+            <td><%= image_tag room.img_name.url, :size => '200x100', class: 'img' %></td>
+          <% else %>
+            <td><%= image_tag "/assets/rails2.jpeg", :size => '200x100' %></td>
+          <% end %>
+          <td><%= link_to room.name, new_reserf_path %></td>
+          <td><%= room.introduction %></td>
+          <td><%= room.price%></td>
+          <td><%= room.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

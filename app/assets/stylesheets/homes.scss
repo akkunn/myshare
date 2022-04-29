@@ -1,0 +1,135 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.main {
+  margin: 10px;
+}
+
+header {
+  background-color: rgb(5, 5, 5);
+  display: flex;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  input {
+    padding: 10px;
+  }
+}
+
+.home-main {
+  background-image: url(https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 650px;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-search {
+  background-color: #fff;
+  width: 500px;
+  padding: 24px;
+  border-radius: 10px;
+}
+
+.main-message {
+  margin: 0;
+}
+
+.search-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-buttons input{
+  padding: 5px;
+  margin: 10px;
+}
+
+.search-button {
+  background-color: rgb(56, 142, 228);
+  border: 1px solid rgb(56, 142, 228);
+  color: #fff;
+}
+
+.recommendation {
+  margin: 30px;
+}
+
+.recommendation-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recommendation-container-itmes {
+  width: 22%;
+  position: relative;
+}
+
+.recommendation-container-itmes img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+}
+
+.prefecture {
+  position: absolute;
+  left: 0;
+  right: 0;
+  // margin: auto;
+  text-align: center;
+  bottom: 30px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+footer {
+  background-color: rgb(5, 5, 5);
+  height: 200px;
+  text-align: center;
+  margin-top: auto;
+  
+}
+
+footer p {
+  color: #fff;
+}
+
+.menu {
+  background-color: #fff;
+  padding: 20px;
+  position: absolute;
+  right: 0;
+  top: 55px;
+  margin-right: 10px;
+  border: 1px solid rgb(7, 6, 6);
+}
+
+.menu li {
+  padding-bottom: 10px;
+}
+
+img {
+  object-fit: contain;
+}

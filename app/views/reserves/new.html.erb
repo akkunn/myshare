@@ -1,0 +1,28 @@
+<% if @room.img_name? %>
+  <%= image_tag @room.img_name.url, :size => '500x300', class: 'img' %>
+<% else %>
+  <%= image_tag "/assets/rails2.jpeg", :size => '500x300' %>
+<% end %>
+
+<h2>icon</h2>
+
+<%= @room.name %>
+<%= @room.address %>
+<%= @room.introduction %>
+
+
+
+<div>
+  <%= form_with url: "/reserves/new" do |f| %>
+  
+    <%= "¥" + @room.price.to_s + "/" + "日" %>
+    <%= f.label :start_day ,"開始日" %>
+    <%= f.date_field :start_day %>
+    <%= f.label :end_day ,"終了日" %>
+    <%= f.date_field :end_day %>
+    <%= f.label :number_people ,"人数" %>
+    <%= f.text_field :number_people %>
+    <%= f.submit "予約する" %>
+
+  <% end %>
+</div>

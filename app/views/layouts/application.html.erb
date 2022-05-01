@@ -15,13 +15,14 @@
       <div class="header-left">
         <a href="/" class="headerlogo"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="ヘッダーロゴ"></a>
         <form action="" class="header-input">
-          <input type="text">
-          <input type="text">
+          <input type="search" name="search" placeholder="エリア">
+          <input type="search" name="keywords" placeholder="キーワード">
         </form>
       </div>
       <div class="change-buttons">
         <% if user_signed_in? %>
           <p class="b"><%= current_user.name %></p>
+    
           <p class="b">b</p>        
         <% else %>
           <button class="login">

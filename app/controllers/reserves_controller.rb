@@ -11,3 +11,4 @@ class ReservesController < ApplicationController
     params.require(:reserve).permit(:room_id, :user_id, :sum_price, :start_day, :end_day, :number_people)
   end
 end
+

@@ -19,11 +19,18 @@
           <input type="text">
         </form>
       </div>
-      <div>
-        <div>a</div>
-        <div>
-          <img src="" alt="">
-        </div>
+      <div class="change-buttons">
+        <% if user_signed_in? %>
+          <p class="b"><%= current_user.name %></p>
+          <p class="b">b</p>        
+        <% else %>
+          <button class="login">
+            <%= link_to "ログイン", new_user_session_path %>
+          </button>
+          <button class="register">
+            <%= link_to "登録する", new_user_registration_path %>
+          </button>
+        <% end %>
       </div>
       <nav>
         <ul class="menu">
@@ -31,10 +38,12 @@
           <li><a href="">予約済みルーム一覧</a></li>
           <li><%= link_to "登録済みルーム一覧", rooms_path %></li>
           <li><a href="">設定</a></li>
-          <li><a href="">ログアウト</a></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
         </ul>
       </nav>
+
     </header>
+
     <div class="yield">
       <%= yield %>
     </div>
@@ -42,5 +51,9 @@
     <footer>
       <p>&copy; 2020 POTEPAN.INC.</p>
     </footer>
+     <div class="flash">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
   </body>
 </html>

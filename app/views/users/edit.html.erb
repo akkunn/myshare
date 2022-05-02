@@ -1,0 +1,36 @@
+<div class="main">
+  <h2>基本情報</h2>
+  <h2>プロフィール</h2>
+
+  <%= form_with model: @user do |f| %>
+    <table>
+      <tr>
+        <th>
+          <% if @user.imr_name? %>
+            <td><%= image_tag @user.imr_name.url, :size => '200x100', class: 'img' %></td>
+          <% else %>
+            <td><%= image_tag "/assets/default_icon.jpeg", :size => '200x100' %></td>
+          <% end %>
+        </th>
+      </tr>
+      <tr>
+        <th><%= f.label :imr_name ,"アイコン画像" %></th>
+        <td><%= f.file_field :imr_name, placeholder: "選択されていません" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :name ,"名前" %></th>
+        <td><%= f.text_area :name, placeholder: "名前を入力" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :introduction ,"自己紹介" %></th>
+        <td><%= f.text_field :introduction, placeholder: "自己紹介を入力" %></td>
+      </tr>
+      <tr>
+        <th>
+          <%= f.submit "更新" %>
+        </th>
+      </tr>
+    </table>
+  <% end %>
+</div>
+

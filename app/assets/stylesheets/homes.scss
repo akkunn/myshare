@@ -26,6 +26,10 @@ header {
   display: flex;
 }
 
+.b {
+  color: #fff;
+}
+
 .header-left {
   display: flex;
   align-items: center;
@@ -143,3 +147,33 @@ img {
 }
 
 // ログイン、新規登録
+.new-register {
+  border: 1px solid rgb(75, 73, 73);
+  width: 500px;
+  margin: 30px auto 0 auto;
+  padding: 10px;
+  text-align: center;
+}
+
+.blue-box {
+  border-radius: 5px;
+  background-color: rgb(56, 142, 228);
+  border: 1px solid rgb(56, 142, 228);
+  color: #fff;
+
+}
+
+.red-box {
+  border-radius: 5px;
+  background-color: rgb(246, 109, 125);
+  border: 1px solid rgb(246, 109, 125);
+  color: #fff;
+  padding: 2px;
+  font-size: 13px;
+}
+
+.field {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}

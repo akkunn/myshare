@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
     #   # user_path(resource)
     #   root_path
     # end
+  protect_from_forgery with: :exception
+  # before_action :authenticate_user!, only: [:]
 
   before_action :configure_permitted_parameters, if: :devise_controller? 
 
@@ -11,7 +13,8 @@ class ApplicationController < ActionController::Base
   private
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up,keys:[:email]) 
+      devise_parameter_sanitizer.permit(:sign_up,keys:[:name]) 
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :imr_name, :introduction])
     end
 
 

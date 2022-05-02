@@ -14,16 +14,24 @@
     <header>
       <div class="header-left">
         <a href="/" class="headerlogo"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="ヘッダーロゴ"></a>
-        <form action="" class="header-input">
-          <input type="search" name="search" placeholder="エリア">
-          <input type="search" name="keywords" placeholder="キーワード">
-        </form>
+        <%= form_with url: rooms_result_path, class: "header-input" do |f| %>
+          <%= f.text_field :address, placeholder: "エリア" %>
+        <% end %>
+
+        <%= form_with url: rooms_search_path, class: "header-input" do |f| %>
+          <%= f.search_field :keywords, placeholder: "キーワード" %> 
+        <% end %>
+          
       </div>
       <div class="change-buttons">
         <% if user_signed_in? %>
           <p class="b"><%= current_user.name %></p>
-    
-          <p class="b">b</p>        
+          <% if current_user.imr_name? %>
+            <p class="header-img"><%= image_tag current_user.imr_name.url, :size => '200x100', class: 'img' %></p>
+          <% else %>
+            <p class="header-img"><%= image_tag "/assets/default_icon.jpeg", :size => '200x100' %></p>
+          <% end %>
+                  
         <% else %>
           <button class="login">
             <%= link_to "ログイン", new_user_session_path %>
@@ -33,15 +41,17 @@
           </button>
         <% end %>
       </div>
-      <nav>
-        <ul class="menu">
-          <li><%= link_to "ルーム登録", new_room_path %></li>
-          <li><a href="">予約済みルーム一覧</a></li>
-          <li><%= link_to "登録済みルーム一覧", rooms_path %></li>
-          <li><a href="">設定</a></li>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-        </ul>
-      </nav>
+      <% if user_signed_in? %>
+        <nav>
+          <ul class="menu">
+            <li><%= link_to "ルーム登録", new_room_path %></li>
+            <li><a href="">予約済みルーム一覧</a></li>
+            <li><%= link_to "登録済みルーム一覧", rooms_path %></li>
+            <li><%= link_to "設定", user_path(current_user) %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </nav>
+      <% end %>
 
     </header>
 

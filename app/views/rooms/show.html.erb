@@ -6,7 +6,11 @@
   <%= image_tag "/assets/rails2.jpeg", :size => '500x300' %>
 <% end %>
 
-<h2>icon</h2>
+<% if @user.imr_name? %>
+  <%= image_tag @user.imr_name.url, :size => '200x100', class: 'img' %>
+<% else %>
+  <%= image_tag "/assets/default_icon.jpeg", :size => '200x100' %>
+<% end %>
 
 <%= @room.name %>
 <%= @room.address %>
@@ -15,7 +19,7 @@
 
 
 <div>
-  <%= form_with url: "/reserves/new" do |f| %>
+  <%= form_with url: new_reserf_path, method: :post do |f| %>
   
     <%= "¥" + @room.price.to_s + "/" + "日" %>
     <%= f.label :start_day ,"開始日" %>

@@ -1,0 +1,16 @@
+
+
+  <div>
+    <% @addresses.each do |address| %>
+      <div>
+        <% if address.img_name? %>
+          <%= image_tag address.img_name.url, :size => '200x100', class: 'img' %>
+        <% else %>
+          <%= image_tag "/assets/rails2.jpeg", :size => '200x100' %></td>
+        <% end %>
+        <%= address.name %>
+        <%= address.address %>
+      </div>
+    <% end %>
+  </div>
+

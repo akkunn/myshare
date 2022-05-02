@@ -1,6 +1,10 @@
 class ReservesController < ApplicationController
   def new
     
+
+  end
+
+  def create
     @reserve = Reserve.new(reserve_params)
     @reserve.save
     # redirect_to rooms_path

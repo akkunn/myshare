@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
-  
+
+
   devise_for :users
+  # get 'users/show' => "users#show"
+  # get "users/:id/edit" => "users#edit"
+  resources :users
+ 
   root "homes#index"
   resources :rooms
+  post "rooms/result" => "rooms#result"
+  post "rooms/search" => "rooms#search"
+
   resources :reserves
+  post "reserves/new" => "reserves#new"
 
   
   

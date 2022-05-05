@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :reserves
   post "reserves/new" => "reserves#new"
+  get "reserves/confirm" => "reserves#confirm"
 
   
   

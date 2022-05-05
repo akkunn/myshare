@@ -1,7 +1,7 @@
 <div class="main">
   <h2>登録済みルーム一覧</h2>
 
-  <table>
+  <table class="room-index">
     <thead>
       <tr>
         <th>ルーム画像</th>
@@ -15,14 +15,19 @@
       <% @rooms.each do |room| %>
         <tr>
           <% if room.img_name? %>
-            <td><%= image_tag room.img_name.url, :size => '200x100', class: 'img' %></td>
+            <td>
+              <%= link_to room_path(room) do %>
+                <%= image_tag room.img_name.url, :size => '200x100', class: 'room-img' %>
+              <% end %>
+            </td>
           <% else %>
-            <td><%= image_tag "/assets/rails2.jpeg", :size => '200x100' %></td>
+            <td><%= image_tag "/assets/rails2.jpeg", :size => '200x100', class: 'room-img' %></td>
           <% end %>
-          <td><%= link_to room.name, room_path(room) %></td>
+          <td><%= link_to room.name, room_path(room), {class: "room-show-link"} %></td>
           <td><%= room.introduction %></td>
           <td><%= room.price%></td>
           <td><%= room.created_at %></td>
+
         </tr>
       <% end %>
     </tbody>

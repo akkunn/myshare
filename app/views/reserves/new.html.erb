@@ -1,1 +1,27 @@
-<h2>予約内容確認</h2>
+
+<% use_day = (@reserve.end_day.to_date - @reserve.start_day.to_date).to_i %>
+
+<div>
+  <h2>予約内容確認</h2>
+  <%= form_with model: @reserve do |f| %>
+  
+    <%= "¥" + @room.price.to_s + "/" + "日" %>
+    <%= f.label :start_day ,"開始日" %>
+    <%= f.text_field :start_day, readonly: true, value: @reserve.start_day %>
+    <%= f.label :end_day ,"終了日" %>
+    <%= f.text_field :end_day, readonly: true, value: @reserve.end_day %>
+    <%= "使用日数 : #{use_day}" %>
+    <%= f.label :number_people ,"人数" %>
+    <%= f.text_field :number_people, disabled: true, value: @reserve.number_people %>
+    <%= f.label :sum_price ,"合計金額" %>
+    <%= f.text_field :sum_price, readonly: true, value: @reserve.number_people.to_i * @room.price.to_i * use_day.to_i %>
+    <%= f.submit "予約を確定する" %>
+    <%= link_to "ルーム詳細に戻る", room_path(@room)%>
+    <%= f.hidden_field :room_id, value: @reserve.room_id %>
+
+  <% end %>
+
+
+
+</div>
+

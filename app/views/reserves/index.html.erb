@@ -1,0 +1,31 @@
+<div class="main">
+  <h2>予約済みルーム一覧</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>合計料金</th>
+        <th>開始日</th>
+        <th>終了日</th>
+        <th>予約確定日時</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reserves.each do |reserve| %>
+        <tr>
+          
+            <td><%= image_tag reserve.room.img_name.url, :size => '200x100', class: 'img' %></td>
+            <td><%= reserve.room.name %></td>
+            <td><%= reserve.room.introduction %></td>
+            <td><%= reserve.sum_price %></td>
+            <td><%= reserve.start_day %></td>
+            <td><%= reserve.end_day %></td>
+            <td><%= reserve.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

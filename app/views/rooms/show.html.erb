@@ -19,8 +19,8 @@
 
 
 <div>
-  <%= form_with url: new_reserf_path, method: :post do |f| %>
-  
+  <%= form_with scope: :reserve, url: new_reserf_path, method: :post do |f| %>
+    <%= f.hidden_field :room_id, value: @room.id %>
     <%= "¥" + @room.price.to_s + "/" + "日" %>
     <%= f.label :start_day ,"開始日" %>
     <%= f.date_field :start_day %>

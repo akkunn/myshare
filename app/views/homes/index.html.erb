@@ -12,27 +12,38 @@
 <div class="home-sub">
   <div class="recommendation">
     <h2>おすすめ</h2>
-    <div class="recommendation-container">
-      <div class="recommendation-container-itmes">
-        <span class="prefecture">東京</span>
-        <a href=""><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg" alt=""></a>
+  
+      <div class="recommendation-container">
+        <div class="recommendation-container-itmes">
+          <%= link_to rooms_result_path(address: "東京"), method: :post do %>
+            <span class="prefecture">東京</span>
+            <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg" alt="東京">
+          <% end %>
+        </div>
+        <div class="recommendation-container-itmes">
+          <%= link_to rooms_result_path(address: "大阪"), method: :post do %>
+            <span class="prefecture">大阪</span>
+            <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg" alt="大阪">
+          <% end %>
+        </div>
+        <div class="recommendation-container-itmes">
+          <%= link_to rooms_result_path(address: "京都"), method: :post do %>
+            <span class="prefecture">京都</span>
+            <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg" alt="京都">
+          <% end %>          
+        </div>
+        <div class="recommendation-container-itmes">
+          <%= link_to rooms_result_path(address: "札幌"), method: :post do %>
+            <span class="prefecture">札幌</span>
+            <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg" alt="札幌">
+          <% end %>          
+        </div>
       </div>
-      <div class="recommendation-container-itmes">
-        <span class="prefecture">大阪</span>
-        <a href=""><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg" alt=""></a>
-      </div>
-      <div class="recommendation-container-itmes">
-        <span class="prefecture">京都</span>
-        <a href=""><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg" alt=""></a>
-      </div>
-      <div class="recommendation-container-itmes">
-        <span class="prefecture">札幌</span>
-        <a href=""><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg" alt=""></a>
-      </div>
-    </div>
+
   </div>
 
 </div>
 
 
 <%# <i class="fas fa-map-marker-alt"></i> %>
+

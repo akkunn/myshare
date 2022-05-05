@@ -1,13 +1,15 @@
   <div>
     <% @key.each do |key| %>
-      <div>
-        <% if key.img_name? %>
-          <%= image_tag key.img_name.url, :size => '200x100', class: 'img' %>
-        <% else %>
-          <%= image_tag "/assets/rails2.jpeg", :size => '200x100' %></td>
-        <% end %>
-        <%= key.name %>
-        <%= key.address %>
-      </div>
+      <%= link_to room_path(key) do %>
+        <div>
+          <% if key.img_name? %>
+            <%= image_tag key.img_name.url, :size => '200x100', class: 'img' %>
+          <% else %>
+            <%= image_tag "/assets/rails2.jpeg", :size => '200x100' %></td>
+          <% end %>
+          <%= key.name %>
+          <%= key.address %>
+        </div>
+      <% end %>
     <% end %>
   </div>

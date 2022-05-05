@@ -6,8 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%# allの後ろにあった , 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -25,32 +25,34 @@
       </div>
       <div class="change-buttons">
         <% if user_signed_in? %>
-          <p class="b"><%= current_user.name %></p>
+          <div>
+            <p class="user-name"><%= current_user.name %></p>
+          </div>
           <% if current_user.imr_name? %>
-            <p class="header-img"><%= image_tag current_user.imr_name.url, :size => '200x100', class: 'img' %></p>
+            <p class="header-img" id="user-img"><%= image_tag current_user.imr_name.url, :size => '50x50', class: 'user-img' %></p>
           <% else %>
-            <p class="header-img"><%= image_tag "/assets/default_icon.jpeg", :size => '200x100' %></p>
-          <% end %>
-                  
+            <p class="header-img" id="user-img"><%= image_tag "/assets/default_icon.jpeg", :size => '70x70', class: 'user-img' %></p>
+          <% end %>                  
         <% else %>
           <button class="login">
-            <%= link_to "ログイン", new_user_session_path %>
+            <%= link_to "ログイン", new_user_session_path, {class: "login-link"} %>
           </button>
           <button class="register">
             <%= link_to "登録する", new_user_registration_path %>
           </button>
         <% end %>
       </div>
+
       <% if user_signed_in? %>
-        <nav>
-          <ul class="menu">
+        <%# <nav> %>
+          <ul class="menu menu-vanish" id="menu">
             <li><%= link_to "ルーム登録", new_room_path %></li>
-            <li><a href="">予約済みルーム一覧</a></li>
+            <li><%= link_to "予約済みルーム一覧", reserves_path %></li>
             <li><%= link_to "登録済みルーム一覧", rooms_path %></li>
             <li><%= link_to "設定", user_path(current_user) %></li>
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
           </ul>
-        </nav>
+        <%# </nav> %>
       <% end %>
 
     </header>
@@ -66,5 +68,8 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
+   
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </body>
 </html>

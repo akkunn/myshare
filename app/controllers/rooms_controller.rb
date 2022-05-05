@@ -1,6 +1,9 @@
 class RoomsController < ApplicationController
+
   def index
+    # binding.pry
     @rooms = Room.where(user_id: current_user.id)
+    # binding.pry
   end
 
   def new
@@ -15,10 +18,13 @@ class RoomsController < ApplicationController
   end
 
   def show
+    # binding.pry
     @room = Room.find(params[:id])
-    # @reserve = Reserve.new
     @user = User.find_by(id: @room.user_id)
     # binding.pry
+    @reserve = Reserve.new
+    # binding.pry
+
   end
 
   def result
@@ -31,12 +37,17 @@ class RoomsController < ApplicationController
     @key = Room.where('name LIKE ? OR introduction LIKE ? OR address LIKE ?', "%#{@keys}%", "%#{@keys}%", "%#{@keys}%")
   end
 
+  # def destroy
+  #   @room = Room.find(params[:id])
+  #   @room.destroy
+  #   redirect_to rooms_path
+  # end
+
   private 
 
   def room_params
     params.require(:room).permit(:img_name, :name, :introduction, :price, :created_at, :address, :user_id)
   end
 end
-
 
 

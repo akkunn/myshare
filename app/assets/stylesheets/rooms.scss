@@ -3,7 +3,13 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-.room-index {
+.room-img {
+  object-fit: cover;
+  width: 100%;
+}
+
+// index-view
+.room-index {   //reserve-indexにも使用
   width: 90%;
   margin: 0 auto;
   border-collapse: collapse;
@@ -11,14 +17,13 @@
 
 .room-index td {
   text-align: center;
-  // height: 110px;
 }
 
 .room-index tr {
   border: 1px solid rgb(0, 0, 0);
 }
 
-.room-img {
+.room-index .room-img {
   padding-top: 5px;
 }
 
@@ -29,4 +34,86 @@
 .room-show-link {
   color: rgb(56, 142, 228);
   border-bottom: 1px solid rgb(56, 142, 228);
+  font-weight: bold;
+}
+
+// show-view
+.room-show {
+  display: flex;
+  margin: 0 100px;
+  justify-content: space-between;
+}
+
+.room-imgname-imrname-nameaddress {
+  width: 65%;
+  margin-top: 30px;
+}
+
+.room-show-introduction {
+  border-bottom: 1px solid rgb(75, 73, 73);
+  padding: 20px 10px;
+  margin: 0 0 30px 0;
+}
+
+.room-show-show-form {
+  width: 30%;
+}
+
+.room-imrname-nameaddress {
+  display: flex;
+  padding: 20px 0;
+  border-bottom: 1px solid rgb(75, 73, 73);
+}
+
+.room-name-address {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  p {
+    margin: 0;
+  }
+}
+
+.room-show-form {
+  border: 1px solid rgb(75, 73, 73);
+  margin: 30px auto 0 auto;
+  padding: 20px;
+}
+
+.room-show-formwith {
+  display: flex;
+  flex-direction: column;
+  input,label,p {
+    margin: 5px;
+  }
+}
+
+// result-view
+
+.room-result {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  justify-content: space-between;
+  a {
+    width: 24%;
+  }
+}
+
+.room-result-content {
+  display: flex;
+  flex-direction: column;
+  
+  border: 1px solid rgb(75, 73, 73);
+  p {
+    margin: 0;
+    padding:15px;
+  }
+  p:last-child {
+    text-align: right;
+  }
+  img {
+    height: 180px;
+  }
+
 }

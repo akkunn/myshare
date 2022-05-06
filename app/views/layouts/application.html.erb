@@ -29,17 +29,13 @@
             <p class="user-name"><%= current_user.name %></p>
           </div>
           <% if current_user.imr_name? %>
-            <p class="header-img" id="user-img"><%= image_tag current_user.imr_name.url, :size => '50x50', class: 'user-img' %></p>
+            <p class="header-img" id="user-img"><%= image_tag current_user.imr_name.url, :size => '70x70', class: 'user-img' %></p>
           <% else %>
             <p class="header-img" id="user-img"><%= image_tag "/assets/default_icon.jpeg", :size => '70x70', class: 'user-img' %></p>
           <% end %>                  
         <% else %>
-          <button class="login">
-            <%= link_to "ログイン", new_user_session_path, {class: "login-link"} %>
-          </button>
-          <button class="register">
-            <%= link_to "登録する", new_user_registration_path %>
-          </button>
+          <%= link_to "ログイン", new_user_session_path, {class: "login"} %>
+          <%= link_to "登録する", new_user_registration_path, {class: "register"} %>
         <% end %>
       </div>
 

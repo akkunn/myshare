@@ -1,36 +1,43 @@
-<div class="main">
-  <h2>基本情報</h2>
-  <h2>プロフィール</h2>
+<div class="user-edit">
+  <div class="user-show-nav">
+    <h4><%= link_to "アカウント", user_path(@user), {class: "user-show-profile"} %></h4>
+    <h4><%= link_to "プロフィール", edit_user_path(@user), {class: "user-show-acount"} %></h4>
+  </div>
 
-  <%= form_with model: @user do |f| %>
-    <table>
-      <tr>
-        <th>
-          <% if @user.imr_name? %>
-            <td><%= image_tag @user.imr_name.url, :size => '200x100', class: 'img' %></td>
-          <% else %>
-            <td><%= image_tag "/assets/default_icon.jpeg", :size => '200x100' %></td>
-          <% end %>
-        </th>
-      </tr>
-      <tr>
-        <th><%= f.label :imr_name ,"アイコン画像" %></th>
-        <td><%= f.file_field :imr_name, placeholder: "選択されていません" %></td>
-      </tr>
-      <tr>
-        <th><%= f.label :name ,"名前" %></th>
-        <td><%= f.text_area :name, placeholder: "名前を入力" %></td>
-      </tr>
-      <tr>
-        <th><%= f.label :introduction ,"自己紹介" %></th>
-        <td><%= f.text_field :introduction, placeholder: "自己紹介を入力" %></td>
-      </tr>
-      <tr>
-        <th>
-          <%= f.submit "更新" %>
-        </th>
-      </tr>
-    </table>
-  <% end %>
+  <div class="user-edit-content">
+    <div class="user-edit-content-box">
+      <div class="user-edit-content-item">
+        <h4>プロフィール</h4>
+      </div>
+      <%= form_with model: @user do |f| %>
+        <table>
+          <div class="user-edit-content-item user-edit-icon">
+                <% if @user.imr_name? %>
+                  <%= image_tag @user.imr_name.url, :size => '70x70', class: 'user-img' %>
+                <% else %>
+                  <%= image_tag "/assets/default_icon.jpeg", :size => '70x70', class: 'user-img' %>
+                <% end %>
+          </div>
+          <tr class="user-edit-content-item">
+              <th><%= f.label :imr_name ,"アイコン画像" %><span class="red-box">必須</span></th>
+              <td><%= f.file_field :imr_name, placeholder: "選択されていません" %></td>
+          </tr>
+          <tr class="user-edit-content-item">
+              <th><%= f.label :name ,"名前" %><span class="red-box">必須</span></th>
+              <td><%= f.text_field :name, placeholder: "名前を入力" %></td>
+          </tr>
+          <tr class="user-edit-content-item">
+              <th><%= f.label :introduction ,"自己紹介" %><span class="red-box">必須</span></th>
+              <td><%= f.text_area :introduction, placeholder: "自己紹介を入力" %></td>
+          </tr>
+          <tr class="user-edit-content-item">
+              <th>
+                <%= f.submit "更新", class: "user-edit-button" %>
+              </th>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
 </div>
 

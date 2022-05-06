@@ -1,3 +1,100 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+// show-view
+
+.user-show,.user-edit {
+  display: flex;
+  height: 700px;
+}
+
+.user-show-nav {
+  width: 10%;
+  border-right: 1px solid rgb(75, 73, 73);
+  text-align: right;
+  padding-right: 20px;
+}
+
+.user-show-acount {
+  color: rgb(56, 142, 228);
+  border-right: 3px solid rgb(56, 142, 228);
+  padding: 0 10px;
+}
+
+.user-show-profile {
+  padding: 0 10px;
+}
+
+.user-show-profile:hover {
+  color: rgb(56, 142, 228);
+}
+
+.user-show-content,.user-edit-content {
+  width: 90%;
+}
+
+.user-show-content-box,.user-edit-content-box {
+  border: 1px solid rgb(75, 73, 73);
+  width: 80%;
+  margin: 40px auto 0 auto;
+}
+
+.user-show-content-item,.user-edit-content-item {
+  border-bottom: 1px solid rgb(75, 73, 73) ;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.user-show-content-item:last-child {
+  border: none;
+}
+
+.user-show-button,.user-edit-button {
+  background-color: rgb(56, 142, 228);
+  border: 1px solid rgb(56, 142, 228);
+  width: 100px;
+  margin: 20px auto;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 15px;
+  color: #fff;
+  a {
+    color: #fff;
+  }
+}
+
+// edit-view
+
+.user-edit table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 0 auto;
+  tr {
+    text-align: left;
+    input,textarea {
+      width: 90%;
+      padding: 10px;
+    }
+    label {
+      margin-left: 10px;
+      margin-right: 3px;
+    }
+  }
+}
+
+.user-edit table th {
+  padding: 30px 0;
+}
+
+.user-edit-icon {
+  text-align: center;
+  padding: 10px 0 6px 0 ;
+}
+
+.user-edit-content-item:last-child {
+  border: none;
+}
+
+

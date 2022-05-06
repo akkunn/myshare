@@ -1,14 +1,15 @@
-  <div>
+  <div class="room-result">
     <% @key.each do |key| %>
       <%= link_to room_path(key) do %>
-        <div>
+        <div class="room-result-content">
           <% if key.img_name? %>
-            <%= image_tag key.img_name.url, :size => '200x100', class: 'img' %>
+            <%= image_tag key.img_name.url, :size => '200x100', class: 'room-img' %>
           <% else %>
-            <%= image_tag "/assets/rails2.jpeg", :size => '200x100' %></td>
+            <%= image_tag "/assets/rails2.jpeg", :size => '200x100', class: 'room-img' %></td>
           <% end %>
-          <%= key.name %>
-          <%= key.address %>
+          <p><%= key.name %></p>
+          <p><%= key.address %></p>
+          <p><%= "¥ #{key.price}" %></p>
         </div>
       <% end %>
     <% end %>

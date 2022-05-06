@@ -1,3 +1,74 @@
 // Place all the styles related to the reserves controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+// new-view
+.room-show-form.reserve-new {
+  margin: 35px auto;
+  width: 400px;
+  padding-top: 0;
+}
+
+.reserve-new-line {
+  border-bottom: 1px solid rgb(75, 73, 73);
+  padding: 15px 3px;
+  h2 {
+    margin: 0;
+  }
+}
+
+.reserve-new-price {
+  font-size: 20px;
+  padding: 12px 0;
+}
+
+.reserve-new-sumprice {
+  margin-top: 15px;
+}
+
+.reserve-new-confirm {
+  background-color: rgb(56, 142, 228);
+  border: 1px solid rgb(56, 142, 228);
+  border-radius: 5px;
+  color: #fff;
+}
+
+.reserve-new .reserve-new-confirm {
+  margin: 15px 0;
+}
+
+.reserve-new-button {
+  margin: 5px;
+  padding: 5px;
+}
+
+// create-view
+
+.reserve-create {
+  border: 1px solid rgb(75, 73, 73);
+  padding: 20px;
+  width: 500px;
+  margin: 0 auto;
+  background-color: #fff;
+  h3 {
+    width: 40%;
+  }
+}
+
+.reserve-create-flex {
+  display: flex;
+  align-items: center;
+}
+
+.reserve-create-content {
+  width: 60%;
+  font-weight: bold;
+}
+
+.reserve-back {
+  height: 400px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background-color: rgb(234, 255, 252);
+}

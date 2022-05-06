@@ -1,16 +1,17 @@
 
 
-  <div>
+  <div class="room-result">
     <% @addresses.each do |address| %>
       <%= link_to room_path(address) do %>
-        <div>
+        <div class="room-result-content">
           <% if address.img_name? %>
-            <%= image_tag address.img_name.url, :size => '200x100', class: 'img' %>
+            <%= image_tag address.img_name.url, :size => '200x100', class: 'room-img' %>
           <% else %>
-            <%= image_tag "/assets/rails2.jpeg", :size => '200x100' %>
+            <%= image_tag "/assets/rails2.jpeg", :size => '200x100', class: 'room-img' %>
           <% end %>
-          <%= address.name %>
-          <%= address.address %>
+          <p><%= address.name %></p>
+          <p><%= address.address %></p>
+          <p><%= "¥ #{address.price}" %></p>
         </div>
       <% end %>
     <% end %>

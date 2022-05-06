@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
   # before_action :authenticate_user!, only: [:]
 
   before_action :configure_permitted_parameters, if: :devise_controller? 
-
+  
+  # before_action :authenticate_user!
+  # def after_sign_up_path_for(resource)
+  #   edit_user_path(resource)
+  # end
 
 
   private
@@ -17,7 +21,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:account_update, keys: [:name, :imr_name, :introduction])
     end
 
-
+  
 
 
 end

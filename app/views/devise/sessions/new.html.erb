@@ -13,17 +13,10 @@
       <%= f.password_field :password, autocomplete: "current-password",  placeholder:"パスワード" %>
     </div>
 
-    <% if devise_mapping.rememberable? %>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <span class="red-box">必須</span>
-      </div>
-    <% end %>
-
     <div class="actions">
-      <%= f.submit "ログイン" %>
+      <%= f.submit "ログイン", class:"blue-box" %>
     </div>
   <% end %>
+  <%= link_to "新しいアカウントを作成", new_user_registration_path, class: "new-register-string" %>
 
-  <%= render "devise/shared/links" %>
 </div>

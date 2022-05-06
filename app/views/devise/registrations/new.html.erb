@@ -15,25 +15,20 @@
     </div>
 
     <div class="field">
-      
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
       <span class="red-box">必須</span>
       <%= f.password_field :password, autocomplete: "new-password", placeholder:"パスワード" %>
     </div>
 
     <div class="field">
       <span class="red-box">必須</span>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"パスワード確認" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"パスワード" %>
     </div>
 
     <div class="actions">
       <%= f.submit "新しいアカウントを作成", class:"blue-box" %>
     </div>
   <% end %>
-  <a href="">
-    すでにアカウントをお持ちの方はログイン
-  </a>
-  <%= render "devise/shared/links" %>
+  <%= link_to "すでにアカウントをお持ちの方はログイン", new_user_session_path, class: "new-register-string" %>
+
+
 </div>

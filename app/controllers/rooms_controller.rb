@@ -14,7 +14,7 @@ class RoomsController < ApplicationController
     @room = Room.new(room_params)
     @room.save
     # binding.pry
-    redirect_to rooms_path
+    redirect_to room_path(@room)
   end
 
   def show

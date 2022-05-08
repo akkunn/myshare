@@ -4,7 +4,12 @@
     <h4><%= link_to "基本情報", new_room_path, {class: "user-show-acount"} %></h4>
   </div>
 
+
   <div class="user-edit-content">
+    <% if flash[:alert] %>
+      <p class="alert"><%= flash[:alert] %></p>
+    <% end %>
+    <%= render "shared/error", obj: @room %>
     <div class="user-edit-content-box">
       <div class="user-edit-content-item">
         <h4>ルーム情報登録</h4>

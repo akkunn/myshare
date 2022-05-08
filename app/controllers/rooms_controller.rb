@@ -1,29 +1,36 @@
 class RoomsController < ApplicationController
 
   def index
-    # binding.pry
     @rooms = Room.where(user_id: current_user.id)
-    # binding.pry
   end
 
   def new
     @room = Room.new
   end
 
+
   def create
     @room = Room.new(room_params)
-    @room.save
-    # binding.pry
-    redirect_to room_path(@room)
+    if @room.save
+      redirect_to room_path(@room, button: "1")
+      flash[:notice] = "ルームを登録しました"
+    else
+      flash.now[:alert] = "ルームを登録できませんでした"
+      render "rooms/new"
+    end
   end
 
   def show
-    # binding.pry
-    @room = Room.find(params[:id])
-    @user = User.find_by(id: @room.user_id)
-    # binding.pry
-    @reserve = Reserve.new
-    # binding.pry
+    if params[:button].to_i == 1
+      @room = Room.find(params[:id])
+      @user = User.find_by(id: @room.user_id)
+      @reserve = Reserve.new
+    else
+      @reserve = Reserve.find(params[:id])
+      @room = Room.find_by(id: @reserve.room_id)
+      @user = User.find_by(id: @room.user_id)
+      @reserve = Reserve.new
+    end
 
   end
 
@@ -37,11 +44,7 @@ class RoomsController < ApplicationController
     @key = Room.where('name LIKE ? OR introduction LIKE ? OR address LIKE ?', "%#{@keys}%", "%#{@keys}%", "%#{@keys}%")
   end
 
-  # def destroy
-  #   @room = Room.find(params[:id])
-  #   @room.destroy
-  #   redirect_to rooms_path
-  # end
+
 
   private 
 
@@ -49,5 +52,6 @@ class RoomsController < ApplicationController
     params.require(:room).permit(:img_name, :name, :introduction, :price, :created_at, :address, :user_id)
   end
 end
+
 
 

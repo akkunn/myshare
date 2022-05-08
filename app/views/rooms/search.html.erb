@@ -1,6 +1,6 @@
   <div class="room-result">
     <% @key.each do |key| %>
-      <%= link_to room_path(key) do %>
+      <%= link_to room_path(key, button: "1") do %>
         <div class="room-result-content">
           <% if key.img_name? %>
             <%= image_tag key.img_name.url, :size => '200x100', class: 'room-img' %>

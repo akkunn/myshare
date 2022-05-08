@@ -9,6 +9,7 @@ class Room < ApplicationRecord
   validates :price, numericality: true
   validates :address, presence: true
   validates :img_name, presence:true
-  validates :user_id, numericality:true
+  # validates :user_id, numericality:true
 end
+
 

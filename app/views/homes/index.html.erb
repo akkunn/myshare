@@ -1,4 +1,8 @@
+
 <div class="home-main">
+    <% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+    <% end %>
     <%= form_with url: rooms_result_path, class: "main-search" do |f| %>
       <h3 class="main-message">Potepan Shareでまだ体験したことのない旅をしよう</h3>
       <div class="search-buttons">
@@ -45,5 +49,4 @@
 </div>
 
 
-<%# <i class="fas fa-map-marker-alt"></i> %>
 

@@ -23,3 +23,14 @@ userImg.addEventListener('click', function() {
   menu.classList.toggle("menu-vanish");
   // console.log('hello')
 });
+
+// let startDay = document.getElementById('startday');
+// let endtDay = document.getElementById('endday');
+// let start = startDay.value
+
+// endtDay.addEventListener('click', function() {
+  
+// });
+
+// console.log(start);
+

@@ -1,4 +1,8 @@
 <div class="reserve-back">
+  <% if flash[:notice] %>
+    <p class="notice"><%= flash[:notice] %></p>
+  <% end %>
+  
   <div class="reserve-create">
     <div class="reserve-create-flex">
       <h3>予約した部屋</h3>

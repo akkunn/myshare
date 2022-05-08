@@ -8,10 +8,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.update(user_params)
-    # @user.save
-    # binding.pry
-    redirect_to edit_user_path(current_user)
+    if @user = User.update(user_params)
+      flash[:notice] = "プロフィールを更新しました"
+      redirect_to edit_user_path(current_user)
+    else
+      render "homes/index"
+      flash[:notice] = "プロフィールを更新できませんでした"
+    end
   end
 
 

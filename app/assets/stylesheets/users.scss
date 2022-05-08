@@ -7,7 +7,7 @@
 
 .user-show,.user-edit {
   display: flex;
-  height: 700px;
+  height: 1000px;
 }
 
 .user-show-nav {
@@ -49,9 +49,10 @@
 
 .user-show-content-item:last-child {
   border: none;
+  padding: 25px 0;
 }
 
-.user-show-button,.user-edit-button {
+.user-edit-button {
   background-color: rgb(56, 142, 228);
   border: 1px solid rgb(56, 142, 228);
   width: 100px;
@@ -60,9 +61,16 @@
   padding: 10px;
   font-size: 15px;
   color: #fff;
-  a {
-    color: #fff;
-  }
+}
+
+.user-show-button {
+  background-color: rgb(56, 142, 228);
+  border: 1px solid rgb(56, 142, 228);
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 40px;
+  font-size: 15px;
+  margin: 20px auto;
 }
 
 // edit-view
@@ -97,4 +105,51 @@
   border: none;
 }
 
+@media screen and (max-width: 700px) {
+  .user-edit,.user-show {
+    flex-direction: column;
+  }
 
+  .user-show-nav {
+    width: 100%;
+    border-bottom: 1px solid rgb(75, 73, 73);
+    text-align: left;
+    padding-right: 20px;
+    border-right: none;
+  }
+
+  .user-show-content,.user-edit-content {
+    width: 100%;
+  }
+
+  .user-show-content-item,.user-edit-content-item {
+    border-bottom: 1px solid rgb(75, 73, 73) ;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    td {
+      text-align: center;
+    }
+    h4 {
+      margin-left: 20px;
+    }
+  }
+
+  .user-show-content-item h3,p {
+    margin-left: 20px;
+  }
+
+
+
+  .user-edit table th {
+    padding: 10px;
+  }
+
+ .user-edit-icon {
+  display: block;
+  }
+
+
+}

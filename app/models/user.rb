@@ -7,5 +7,15 @@ class User < ApplicationRecord
   mount_uploader :imr_name, ImgUploader
 
 
+
+
   has_many :rooms
+  has_many :reserves
+
+  # validates :imr_name, presence: true
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :password, presence: true
+  # validates :introduction, presence: true
+  
 end

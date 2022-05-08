@@ -2,7 +2,7 @@
   <h2>ログイン</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
+    <%= render "shared/error", obj: resource %>
     <div class="field">
       <span class="red-box">必須</span>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレス" %>
@@ -13,10 +13,12 @@
       <%= f.password_field :password, autocomplete: "current-password",  placeholder:"パスワード" %>
     </div>
 
+
     <div class="actions">
       <%= f.submit "ログイン", class:"blue-box" %>
     </div>
   <% end %>
   <%= link_to "新しいアカウントを作成", new_user_registration_path, class: "new-register-string" %>
-
 </div>
+
+

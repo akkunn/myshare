@@ -88,22 +88,34 @@
   }
 }
 
+.show-login {
+  background-color: rgb(56, 142, 228);
+  border: 1px solid rgb(56, 142, 228);
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 15px;
+  height: 20px;
+  color: #fff;
+  line-height: 20px;
+  text-align: center;
+  margin: 5px;
+}
+
 // result-view
 
 .room-result {
   display: flex;
   flex-wrap: wrap;
   padding: 15px;
-  justify-content: space-between;
   a {
-    width: 24%;
+    width: 25%;
   }
 }
 
 .room-result-content {
   display: flex;
   flex-direction: column;
-  
+  margin: 10px;
   border: 1px solid rgb(75, 73, 73);
   p {
     margin: 0;
@@ -115,5 +127,22 @@
   img {
     height: 180px;
   }
+}
 
+@media screen and (max-width: 900px) {
+  .room-result a {
+    width: 33%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .room-result a {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .room-result a {
+    width: 100%;
+  }
 }

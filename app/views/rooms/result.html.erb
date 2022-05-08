@@ -2,7 +2,7 @@
 
   <div class="room-result">
     <% @addresses.each do |address| %>
-      <%= link_to room_path(address) do %>
+      <%= link_to room_path(address, button: "1") do %>
         <div class="room-result-content">
           <% if address.img_name? %>
             <%= image_tag address.img_name.url, :size => '200x100', class: 'room-img' %>
@@ -16,5 +16,8 @@
       <% end %>
     <% end %>
   </div>
+
+
+
 
 

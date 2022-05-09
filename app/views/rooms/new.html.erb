@@ -1,0 +1,66 @@
+<%# user-editのクラスを使用 %>
+<div class="user-edit">
+  <div class="user-show-nav">
+    <h4><%= link_to "基本情報", new_room_path, {class: "user-show-acount"} %></h4>
+  </div>
+
+
+  <div class="user-edit-content">
+    <% if flash[:alert] %>
+      <p class="alert"><%= flash[:alert] %></p>
+    <% end %>
+    <%= render "shared/error", obj: @room %>
+    <div class="user-edit-content-box">
+      <div class="user-edit-content-item">
+        <h4>ルーム情報登録</h4>
+      </div>
+      <%= form_with model: @room do |f| %>
+        <table>
+          <tr class="user-edit-content-item">
+            <th>
+              <%= f.label :name ,"ルーム名" %>
+              <span class="red-box">必須</span>
+            </th>
+            <td><%= f.text_field :name, placeholder: "ルーム名を入力" %></td>
+          </tr>
+          <tr class="user-edit-content-item">
+            <th>
+              <%= f.label :introduction ,"ルーム紹介" %>
+              <span class="red-box">必須</span>
+            </th>
+            <td><%= f.text_area :introduction, placeholder: "ルーム説明を入力" %></td>
+          </tr>
+          <tr class="user-edit-content-item">
+            <th>
+              <%= f.label :price ,"料金" %>
+              <span class="red-box">必須</span>
+            </th>
+            <td><%= f.text_field :price, placeholder: "1日あたりの料金を入力" %></td>
+          </tr>
+          <tr class="user-edit-content-item">
+            <th>
+              <%= f.label :address ,"住所" %>
+              <span class="red-box">必須</span>
+            </th>
+            <td><%= f.text_field :address, placeholder: "住所を入力" %></td>
+          </tr>
+          <tr class="user-edit-content-item">
+            <th>
+              <%= f.label :img_name ,"ルーム画像" %>
+              <span class="red-box">必須</span>
+            </th>
+            <td><%= f.file_field :img_name, placeholder: "選択されていません" %></td>
+          </tr>
+          <tr class="user-edit-content-item">
+            <th>
+              <%= f.submit "登録", class: "user-edit-button" %>
+            </th>
+          </tr>
+        </table>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

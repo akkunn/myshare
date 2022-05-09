@@ -1,0 +1,29 @@
+<div class="user-show">
+  <div class="user-show-nav">
+    <h4><%= link_to "アカウント", user_path(@user), {class: "user-show-acount"} %></h4>
+    <h4><%= link_to "プロフィール", edit_user_path(@user), {class: "user-show-profile"} %></h4>
+  </div>
+
+  <div class="user-show-content">
+    <div class="user-show-content-box">
+      <div class="user-show-content-item">
+        <h3>アカウント</h3>
+      </div>
+      <div class="user-show-content-item">
+        <h3>メールアドレス</h3>
+        <p><%= @user.email %></p>
+      </div>
+      <div class="user-show-content-item">
+        <h3>パスワード</h3>
+        <p>
+          ***********
+      </p>
+      </div>
+      <div class="user-show-content-item">
+          <%= link_to "編集", edit_user_registration_path, class: "user-show-button" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
